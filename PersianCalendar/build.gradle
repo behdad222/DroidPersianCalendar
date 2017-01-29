@@ -1,5 +1,9 @@
 apply plugin: 'com.android.application'
 
+repositories {
+    jcenter { url "http://jcenter.bintray.com/" }
+}
+
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
@@ -29,6 +33,7 @@ android {
 }
 
 dependencies {
+    testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:25.1.0'
     compile 'com.android.support:design:25.1.0'
     compile 'com.android.support:preference-v7:25.1.0'
