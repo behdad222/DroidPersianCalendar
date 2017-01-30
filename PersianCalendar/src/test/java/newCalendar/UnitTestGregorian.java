@@ -1,5 +1,6 @@
 package newCalendar;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertFalse;
@@ -11,10 +12,10 @@ import static org.junit.Assert.assertTrue;
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
 public class UnitTestGregorian {
-
     private Gregorian gregorian;
 
-    public UnitTestGregorian() {
+    @Before
+    public void initTest() {
         gregorian = new Gregorian();
     }
 
