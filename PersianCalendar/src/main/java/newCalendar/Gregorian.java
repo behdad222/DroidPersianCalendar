@@ -49,8 +49,8 @@ public class Gregorian {
             tm = -2;
         }
 
-        return epoch - 1 + 365 * (year - 1) + (year - 1) / 4 - (year - 1) / 100 +
-                (year - 1) / 400 + (367 * month - 362) / 12 + tm + day;
+        return (int) (epoch - 1 + 365 * (year - 1) + Math.floor((double) (year - 1) / 4) - Math.floor((double) (year - 1) / 100) +
+                Math.floor((double) (year - 1) / 400) + Math.floor((double) (367 * month - 362) / 12) + tm + day);
     }
 
     Date jd_to(int jd) {
