@@ -185,6 +185,14 @@ public class UnitTestGregorian {
         assertEquals(gregorian.to_jd(2017, 10, 1), 2458028);
         assertEquals(gregorian.to_jd(2017, 11, 1), 2458059);
         assertEquals(gregorian.to_jd(2017, 12, 1), 2458089);
+        assertEquals(gregorian.to_jd(-4713, 11, 23), 0);
+        assertEquals(gregorian.to_jd(-4713, 11, 22), -1);
+        assertEquals(gregorian.to_jd(-4713, 11, 21), -2);
+        assertEquals(gregorian.to_jd(-4713, 11, 1), -22);
+        assertEquals(gregorian.to_jd(-4713, 10, 31), -23);
+        assertEquals(gregorian.to_jd(-4713, 10, 30), -24);
+        assertEquals(gregorian.to_jd(-4713, 8, 15), -100);
+        assertEquals(gregorian.to_jd(-4776, 7, 27), -23131);
     }
 
     @Test
