@@ -53,6 +53,15 @@ public class Gregorian {
                 Math.floor((double) (year - 1) / 400) + Math.floor((double) (367 * month - 362) / 12) + tm + day);
     }
 
+    int mod(int a, int b) {
+        if (a < 0) {
+            return (a % b + b) % b;
+        } else {
+            return a % b;
+        }
+//        return (a < 0 ? a % b + b : a) % b;
+    }
+
     Date jd_to(int jd) {
 
 //        int ordinal = jd - 1721425;
@@ -60,16 +69,16 @@ public class Gregorian {
 //            dt = datetime.fromordinal(ordinal)
 //            return (dt.year,dt.month, dt.day)
 //        }
-        int qc = (jd - epoch) / 146097;
-        int dqc = (jd - epoch) % 146097;
+        int qc = (int) Math.floor((double) (jd - epoch) / 146097);
+        int dqc = mod((jd - epoch), 146097);
 
-        int cent = dqc / 36524;
-        int dcent = dqc % 36524;
+        int cent = (int) Math.floor((double) dqc / 36524);
+        int dcent = mod(dqc ,36524);
 
-        int quad = dcent / 1461;
-        int dquad = dcent % 1461;
+        int quad = (int) Math.floor((double) dcent / 1461);
+        int dquad = mod(dcent , 1461);
 
-        int yindex = dquad / 365;
+        int yindex = (int) Math.floor((double) dquad / 365);
 
         int a = 0;
         if (cent != 4 && yindex != 4) {
@@ -89,7 +98,7 @@ public class Gregorian {
             leapadj = 2;
         }
 
-        int month = ((yearday + leapadj) * 12 + 373) / 367;
+        int month = (int) Math.floor((double) ((yearday + leapadj) * 12 + 373) / 367);
         int day = jd - to_jd(year, month, 1) + 1;
         return new Date(year, month, day);
     }
@@ -109,6 +118,10 @@ public class Gregorian {
             this.day = day;
             this.month = month;
             this.year = year;
+        }
+
+        public String getDate() {
+            return year + "/" + month + "/" + day;
         }
     }
 }
