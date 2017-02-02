@@ -24,6 +24,7 @@ public class UnitTestGregorian {
     public void leapTest() {
         assertFalse(gregorian.isLeap(-1000));
         assertFalse(gregorian.isLeap(-802));
+        assertFalse(gregorian.isLeap(-901));
         assertTrue(gregorian.isLeap(-801));
         assertFalse(gregorian.isLeap(-800));
         assertFalse(gregorian.isLeap(-402));
@@ -63,6 +64,57 @@ public class UnitTestGregorian {
         assertTrue(gregorian.isLeap(800));
         assertFalse(gregorian.isLeap(801));
         assertFalse(gregorian.isLeap(1000));
+        assertTrue(gregorian.isLeap(1992));
+        assertTrue(gregorian.isLeap(1996));
+        assertTrue(gregorian.isLeap(2004));
+        assertTrue(gregorian.isLeap(2000));
+        assertTrue(gregorian.isLeap(2400));
+        assertTrue(gregorian.isLeap(2800));
+        assertFalse(gregorian.isLeap(1800));
+        assertFalse(gregorian.isLeap(1900));
+        assertFalse(gregorian.isLeap(2100));
+        assertFalse(gregorian.isLeap(2200));
+        assertFalse(gregorian.isLeap(2300));
+        assertFalse(gregorian.isLeap(1990));
+        assertFalse(gregorian.isLeap(1991));
+        assertTrue(gregorian.isLeap(1992));
+        assertFalse(gregorian.isLeap(1993));
+        assertFalse(gregorian.isLeap(1994));
+        assertFalse(gregorian.isLeap(1995));
+        assertTrue(gregorian.isLeap(1996));
+        assertFalse(gregorian.isLeap(1997));
+        assertFalse(gregorian.isLeap(1998));
+        assertFalse(gregorian.isLeap(1999));
+        assertTrue(gregorian.isLeap(2000));
+        assertFalse(gregorian.isLeap(2001));
+        assertFalse(gregorian.isLeap(2002));
+        assertFalse(gregorian.isLeap(2003));
+        assertTrue(gregorian.isLeap(2004));
+        assertFalse(gregorian.isLeap(2005));
+        assertFalse(gregorian.isLeap(2006));
+        assertFalse(gregorian.isLeap(2007));
+        assertTrue(gregorian.isLeap(2008));
+        assertFalse(gregorian.isLeap(2009));
+        assertFalse(gregorian.isLeap(2010));
+        assertFalse(gregorian.isLeap(2011));
+        assertTrue(gregorian.isLeap(2012));
+        assertFalse(gregorian.isLeap(2013));
+        assertFalse(gregorian.isLeap(2014));
+        assertFalse(gregorian.isLeap(2015));
+        assertTrue(gregorian.isLeap(2016));
+        assertFalse(gregorian.isLeap(2017));
+        assertFalse(gregorian.isLeap(2018));
+        assertFalse(gregorian.isLeap(2019));
+        assertTrue(gregorian.isLeap(2020));
+        assertFalse(gregorian.isLeap(2021));
+        assertFalse(gregorian.isLeap(2022));
+        assertFalse(gregorian.isLeap(2023));
+        assertTrue(gregorian.isLeap(2024));
+        assertFalse(gregorian.isLeap(2025));
+        assertFalse(gregorian.isLeap(2026));
+        assertFalse(gregorian.isLeap(2027));
+        assertTrue(gregorian.isLeap(2028));
+        assertFalse(gregorian.isLeap(2029));
     }
 
     @Test
