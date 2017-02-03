@@ -74,7 +74,7 @@ public final class DateConverter {
 
     public static CivilDate jdnToCivil(long jdn) {
 
-        if (jdn > 2299160) {
+//        if (jdn > 2299160) {
             long l = jdn + 68569;
             long n = ((4 * l) / 146097);
             l = l - ((146097 * n + 3) / 4);
@@ -86,8 +86,8 @@ public final class DateConverter {
             int month = (int) (j + 2 - 12 * l);
             int year = (int) (100 * (n - 49) + i + l);
             return new CivilDate(year, month, day);
-        } else
-            return jdnToJulian(jdn);
+//        } else
+//            return jdnToJulian(jdn);
     }
 
     public static IslamicDate jdnToIslamic(long jd) {
