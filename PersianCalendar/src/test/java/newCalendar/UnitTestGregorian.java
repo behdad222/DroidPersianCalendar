@@ -25,11 +25,11 @@ public class UnitTestGregorian {
         assertFalse(gregorian.isLeap(-1000));
         assertFalse(gregorian.isLeap(-802));
         assertFalse(gregorian.isLeap(-901));
-        assertTrue(gregorian.isLeap(-801));
-        assertFalse(gregorian.isLeap(-800));
+        assertFalse(gregorian.isLeap(-801));
+        assertTrue(gregorian.isLeap(-800));
         assertFalse(gregorian.isLeap(-402));
-        assertTrue(gregorian.isLeap(-401));
-        assertFalse(gregorian.isLeap(-400));
+        assertFalse(gregorian.isLeap(-401));
+        assertTrue(gregorian.isLeap(-400));
         assertFalse(gregorian.isLeap(-201));
         assertFalse(gregorian.isLeap(-200));
         assertFalse(gregorian.isLeap(-199));
@@ -37,14 +37,14 @@ public class UnitTestGregorian {
         assertFalse(gregorian.isLeap(-100));
         assertFalse(gregorian.isLeap(-99));
         assertFalse(gregorian.isLeap(-18));
-        assertTrue(gregorian.isLeap(-17));
-        assertFalse(gregorian.isLeap(-16));
+        assertFalse(gregorian.isLeap(-17));
+        assertTrue(gregorian.isLeap(-16));
         assertFalse(gregorian.isLeap(-6));
-        assertTrue(gregorian.isLeap(-5));
-        assertFalse(gregorian.isLeap(-4));
+        assertFalse(gregorian.isLeap(-5));
+        assertTrue(gregorian.isLeap(-4));
         assertFalse(gregorian.isLeap(-2));
-        assertTrue(gregorian.isLeap(-1));
-        assertFalse(gregorian.isLeap(0));
+        assertFalse(gregorian.isLeap(-1));
+        assertTrue(gregorian.isLeap(0));
         assertFalse(gregorian.isLeap(1));
         assertFalse(gregorian.isLeap(2));
         assertFalse(gregorian.isLeap(3));
@@ -119,6 +119,22 @@ public class UnitTestGregorian {
 
     @Test
     public void to_jdTest() {
+        assertEquals(gregorian.to_jd(2000, 1, 1), 2451545);
+        assertEquals(gregorian.to_jd(1800, 1, 1), 2378497);
+        assertEquals(gregorian.to_jd(1700, 1, 1), 2341973);
+        assertEquals(gregorian.to_jd(1600, 1, 1), 2305448);
+        assertEquals(gregorian.to_jd(1599, 12, 31), 2305447);
+        assertEquals(gregorian.to_jd(1599, 1, 1), 2305083);
+        assertEquals(gregorian.to_jd(1590, 1, 1), 2301796);
+        assertEquals(gregorian.to_jd(1583, 1, 1), 2299239);
+        assertEquals(gregorian.to_jd(1582, 11, 1), 2299178);
+        assertEquals(gregorian.to_jd(1582, 10, 15), 2299161);
+        assertEquals(gregorian.to_jd(1582, 10, 14), 2299160);
+        assertEquals(gregorian.to_jd(1582, 10, 1), 2299147);
+        assertEquals(gregorian.to_jd(1580, 1, 1), 2298143);
+        assertEquals(gregorian.to_jd(1550, 1, 1), 2287186);
+        assertEquals(gregorian.to_jd(1500, 1, 1), 2268924);
+        assertEquals(gregorian.to_jd(1000, 1, 1), 2086303);
         assertEquals(gregorian.to_jd(2016, 2, 4), 2457423);
         assertEquals(gregorian.to_jd(0, 0, 0), 1721028);
         assertEquals(gregorian.to_jd(1, 1, 1), 1721426);
@@ -128,10 +144,10 @@ public class UnitTestGregorian {
         assertEquals(gregorian.to_jd(-17, 1, 1), 1714851);
         assertEquals(gregorian.to_jd(-17, 2, 28), 1714909);
         assertEquals(gregorian.to_jd(-17, 2, 29), 1714910);
-        assertEquals(gregorian.to_jd(-17, 3, 1), 1714911);
+        assertEquals(gregorian.to_jd(-17, 3, 1), 1714910);
         assertEquals(gregorian.to_jd(-16, 2, 28), 1715274);
         assertEquals(gregorian.to_jd(-16, 2, 29), 1715275);
-        assertEquals(gregorian.to_jd(-16, 3, 1), 1715275);
+        assertEquals(gregorian.to_jd(-16, 3, 1), 1715276);
         assertEquals(gregorian.to_jd(16, 3, 1), 1726964);
         assertEquals(gregorian.to_jd(16, 2, 29), 1726963);
         assertEquals(gregorian.to_jd(16, 2, 28), 1726962);
@@ -185,14 +201,14 @@ public class UnitTestGregorian {
         assertEquals(gregorian.to_jd(2017, 10, 1), 2458028);
         assertEquals(gregorian.to_jd(2017, 11, 1), 2458059);
         assertEquals(gregorian.to_jd(2017, 12, 1), 2458089);
-        assertEquals(gregorian.to_jd(-4713, 11, 23), 0);
-        assertEquals(gregorian.to_jd(-4713, 11, 22), -1);
-        assertEquals(gregorian.to_jd(-4713, 11, 21), -2);
-        assertEquals(gregorian.to_jd(-4713, 11, 1), -22);
-        assertEquals(gregorian.to_jd(-4713, 10, 31), -23);
-        assertEquals(gregorian.to_jd(-4713, 10, 30), -24);
-        assertEquals(gregorian.to_jd(-4713, 8, 15), -100);
-        assertEquals(gregorian.to_jd(-4776, 7, 27), -23131);
+        assertEquals(gregorian.to_jd(-4713, 11, 23), -1);
+        assertEquals(gregorian.to_jd(-4713, 11, 22), -2);
+        assertEquals(gregorian.to_jd(-4713, 11, 21), -3);
+        assertEquals(gregorian.to_jd(-4713, 11, 1), -23);
+        assertEquals(gregorian.to_jd(-4713, 10, 31), -24);
+        assertEquals(gregorian.to_jd(-4713, 10, 30), -25);
+        assertEquals(gregorian.to_jd(-4713, 8, 15), -101);
+        assertEquals(gregorian.to_jd(-4776, 7, 27), -23130);
     }
 
     @Test
@@ -206,17 +222,17 @@ public class UnitTestGregorian {
         assertEquals(gregorian.jd_to(1000).getDate(), "-4710/8/20");
         assertEquals(gregorian.jd_to(-1000).getDate(), "-4715/2/27");
         assertEquals(gregorian.jd_to(2457423).getDate(), "2016/2/4");
-        assertEquals(gregorian.jd_to(1721028).getDate(), "-1/11/29");
+        assertEquals(gregorian.jd_to(1721028).getDate(), "-1/11/30");
         assertEquals(gregorian.jd_to(1721426).getDate(), "1/1/1");
         assertEquals(gregorian.jd_to(1720330).getDate(), "-2/1/1");
         assertEquals(gregorian.jd_to(1720632).getDate(), "-2/10/30");
         assertEquals(gregorian.jd_to(1714788).getDate(), "-18/10/30");
         assertEquals(gregorian.jd_to(1714851).getDate(), "-17/1/1");
         assertEquals(gregorian.jd_to(1714909).getDate(), "-17/2/28");
-        assertEquals(gregorian.jd_to(1714910).getDate(), "-17/2/29");
-        assertEquals(gregorian.jd_to(1714911).getDate(), "-17/3/1");
+        assertEquals(gregorian.jd_to(1714910).getDate(), "-17/3/1");
+        assertEquals(gregorian.jd_to(1714911).getDate(), "-17/3/2");
         assertEquals(gregorian.jd_to(1715274).getDate(), "-16/2/28");
-        assertEquals(gregorian.jd_to(1715275).getDate(), "-16/3/1");
+        assertEquals(gregorian.jd_to(1715275).getDate(), "-16/2/29");
         assertEquals(gregorian.jd_to(1726964).getDate(), "16/3/1");
         assertEquals(gregorian.jd_to(1726963).getDate(), "16/2/29");
         assertEquals(gregorian.jd_to(1726962).getDate(), "16/2/28");
@@ -269,14 +285,14 @@ public class UnitTestGregorian {
         assertEquals(gregorian.jd_to(2458028).getDate(), "2017/10/1");
         assertEquals(gregorian.jd_to(2458059).getDate(), "2017/11/1");
         assertEquals(gregorian.jd_to(2458089).getDate(), "2017/12/1");
-        assertEquals(gregorian.jd_to(0).getDate(), "-4713/11/23");
-        assertEquals(gregorian.jd_to(-1).getDate(), "-4713/11/22");
-        assertEquals(gregorian.jd_to(-2).getDate(), "-4713/11/21");
-        assertEquals(gregorian.jd_to(-22).getDate(), "-4713/11/1");
-        assertEquals(gregorian.jd_to(-23).getDate(), "-4713/10/31");
-        assertEquals(gregorian.jd_to(-24).getDate(), "-4713/10/30");
-        assertEquals(gregorian.jd_to(-100).getDate(), "-4713/8/15");
-        assertEquals(gregorian.jd_to(-23131).getDate(), "-4776/7/27");
+        assertEquals(gregorian.jd_to(0).getDate(), "-4713/11/24");
+        assertEquals(gregorian.jd_to(-1).getDate(), "-4713/11/23");
+        assertEquals(gregorian.jd_to(-2).getDate(), "-4713/11/22");
+        assertEquals(gregorian.jd_to(-22).getDate(), "-4713/11/2");
+        assertEquals(gregorian.jd_to(-23).getDate(), "-4713/11/1");
+        assertEquals(gregorian.jd_to(-24).getDate(), "-4713/10/31");
+        assertEquals(gregorian.jd_to(-100).getDate(), "-4713/8/16");
+        assertEquals(gregorian.jd_to(-23131).getDate(), "-4776/7/26");
     }
 
 }
