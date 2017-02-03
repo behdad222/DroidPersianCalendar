@@ -25,16 +25,16 @@ public final class DateConverter {
         long lMonth = civil.getMonth();
         long lDay = civil.getDayOfMonth();
 
-        if ((lYear > 1582)
-                || ((lYear == 1582) && (lMonth > 10))
-                || ((lYear == 1582) && (lMonth == 10) && (lDay > 14))) {
+//        if ((lYear > 1582)
+//                || ((lYear == 1582) && (lMonth > 10))
+//                || ((lYear == 1582) && (lMonth == 10) && (lDay > 14))) {
 
             return ((1461 * (lYear + 4800 + ((lMonth - 14) / 12))) / 4)
                     + ((367 * (lMonth - 2 - 12 * (((lMonth - 14) / 12)))) / 12)
                     - ((3 * (((lYear + 4900 + ((lMonth - 14) / 12)) / 100))) / 4)
                     + lDay - 32075;
-        } else
-            return julianToJdn(lYear, lMonth, lDay);
+//        } else
+//            return julianToJdn(lYear, lMonth, lDay);
 
     }
 
