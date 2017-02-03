@@ -29,9 +29,9 @@ public class Gregorian {
     double avgYearLen = 365.2425;// FIXME
 
     boolean isLeap(int y) {
-        if (y < 1) {
-            y += 1;
-        }
+//        if (y < 1) {
+//            y += 1;
+//        }
         return y % 4 == 0 && !(y % 100 == 0 && y % 400 != 0);
     }
 
