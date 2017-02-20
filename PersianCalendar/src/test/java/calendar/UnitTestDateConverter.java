@@ -31,6 +31,7 @@ public class UnitTestDateConverter {
         assertEquals(DateConverter.civilToJdn(new CivilDate(1000, 1, 1)), 2086303);
         assertEquals(DateConverter.civilToJdn(new CivilDate(2016, 2, 4)), 2457423);
 //        assertEquals(DateConverter.civilToJdn(new CivilDate(0, 0, 0)), 1721028);
+//        assertEquals(DateConverter.civilToJdn(new CivilDate(0, 1, 1)), 1721060);
         assertEquals(DateConverter.civilToJdn(new CivilDate(1, 1, 1)), 1721426);
         assertEquals(DateConverter.civilToJdn(new CivilDate(-2, 1, 1)), 1720330);
 //        assertEquals(DateConverter.civilToJdn(new CivilDate(-1, -1, -1)), 1720632);

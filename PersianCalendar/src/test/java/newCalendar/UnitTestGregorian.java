@@ -137,6 +137,7 @@ public class UnitTestGregorian {
         assertEquals(gregorian.to_jd(1000, 1, 1), 2086303);
         assertEquals(gregorian.to_jd(2016, 2, 4), 2457423);
         assertEquals(gregorian.to_jd(0, 0, 0), 1721028);
+        assertEquals(gregorian.to_jd(0, 1, 1), 1721060);
         assertEquals(gregorian.to_jd(1, 1, 1), 1721426);
         assertEquals(gregorian.to_jd(-2, 1, 1), 1720330);
         assertEquals(gregorian.to_jd(-1, -1, -1), 1720632);
